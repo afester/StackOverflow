@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This work is licensed under the Creative Commons Attribution 3.0 Unported 
+# License. To view a copy of this license, visit 
+# http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative 
+# Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+
+# StackOverflow reference:
+# http://stackoverflow.com/questions/13269556/strange-behavior-of-class-getresource-and-classloader-getresource-in-executa
+
+export JDK_HOME="/opt/jdk1.7.0_07"
+export JAVA="${JDK_HOME}/bin/java"
+export JAVAC="${JDK_HOME}/bin/javac"
+export JAR="${JDK_HOME}/bin/jar"
+
+# Clean Build
+rm -rf bin app.jar
+mkdir bin
+${JAVAC} -d bin src/com/so/resourcetest/ResourceTest.java
+cp -R src/subdir bin
+${JAR} cvfm app.jar src/MANIFEST.MF -C bin .
+
+# Run from file system
+echo "Running from file system ..."
+${JAVA} -classpath bin com.so.resourcetest.ResourceTest
+
+# Run from jar file
+echo "Running from jar file ..."
+${JAVA} -jar app.jar
