@@ -7,6 +7,9 @@
 
 /* StackOverflow reference:
  * http://stackoverflow.com/questions/13467343/want-to-use-aes-256-cbc-with-32-bytes-but-it-shows-java-security-invalidalgorith
+ * 
+ * NOTE: In order to run this sample and to reproduce the question from SO,
+ * it is necessary to install the unrestricted security policy files!
  */
 
 package com.example;
