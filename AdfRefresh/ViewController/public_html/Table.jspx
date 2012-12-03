@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="Table" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:panelStretchLayout id="psl1">
+                    <f:facet name="bottom"/>
+                    <f:facet name="center">
+                        <af:table value="#{bindings.MytableView1.collectionModel}" var="row"
+                                  rows="#{bindings.MytableView1.rangeSize}"
+                                  emptyText="#{bindings.MytableView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.MytableView1.rangeSize}" rowBandingInterval="0" id="t1">
+                            <af:column sortProperty="#{bindings.MytableView1.hints.Mycolumn.name}" sortable="false"
+                                       headerText="#{bindings.MytableView1.hints.Mycolumn.label}" id="c1">
+                                <af:inputText value="#{row.bindings.Mycolumn.inputValue}"
+                                              label="#{bindings.MytableView1.hints.Mycolumn.label}"
+                                              required="#{bindings.MytableView1.hints.Mycolumn.mandatory}"
+                                              columns="#{bindings.MytableView1.hints.Mycolumn.displayWidth}"
+                                              maximumLength="#{bindings.MytableView1.hints.Mycolumn.precision}"
+                                              shortDesc="#{bindings.MytableView1.hints.Mycolumn.tooltip}" id="it1">
+                                    <f:validator binding="#{row.bindings.Mycolumn.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </f:facet>
+                    <f:facet name="start"/>
+                    <f:facet name="end"/>
+                    <f:facet name="top"/>
+                </af:panelStretchLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.62.76" id="TablePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MytableView1" RangeSize="25" DataControl="AppModuleDataControl" id="MytableView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MytableView1Iterator" id="MytableView1">
+      <nodeDefinition DefName="model.MytableView" Name="MytableView10">
+        <AttrNames>
+          <Item Value="Mycolumn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

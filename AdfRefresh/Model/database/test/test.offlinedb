@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProviderSettings xmlns="http://xmlns.oracle.com/ide/hash">
+   <hash n="dataTypeSettings">
+      <value n="sourceKey" v="oracle.javatools.db.mysql.MySQL5"/>
+   </hash>
+   <value n="id" v="77a84650-dc59-41fb-8da8-dc1457d9f1f2"/>
+   <value n="name" v="test"/>
+   <value n="offlineDBSchema" v="test"/>
+</ProviderSettings>
