@@ -1,0 +1,2 @@
+* Copy mysql-connector-java-5.1.22-bin.jar into the lib directory to enable design time MySQL support
+* Add mysql-connector-java-5.1.22-bin.jar to the weblogic server startup classpath to enable runtime MySQL support
