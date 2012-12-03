@@ -14,16 +14,25 @@
 SignalSlotChange::SignalSlotChange(QWidget *parent) : QWidget(parent)
 {
     button = new QPushButton("Messgage", this);
-    QObject::connect(button, SIGNAL(clicked()), this, SLOT(firstCall()));
+    QObject::connect(button, SIGNAL(clicked()), this, SLOT(callCall()));
     show();
+
+    delegate = &SignalSlotChange::firstCall;
+}
+
+void SignalSlotChange::callCall() {
+    (this->*delegate) ();
 }
 
 void SignalSlotChange::firstCall()
 {
     QMessageBox::information(this, "SignalSlotChange", "First call", QMessageBox::Ok, QMessageBox::NoButton);
+
     // Change the signal-slot connection to secondCall()
-    QObject::disconnect(button, SIGNAL(clicked()), this, SLOT(firstCall()));
-    QObject::connect(button, SIGNAL(clicked()), this, SLOT(secondCall()));
+    delegate = &SignalSlotChange::secondCall;
+
+//    QObject::disconnect(button, SIGNAL(clicked()), this, SLOT(firstCall()));
+//    QObject::connect(button, SIGNAL(clicked()), this, SLOT(secondCall()));
 }
 
 void SignalSlotChange::secondCall()

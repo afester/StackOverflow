@@ -19,14 +19,19 @@ class SignalSlotChange : public QWidget
 {
 Q_OBJECT
 
+
 public:
     SignalSlotChange(QWidget *parent = 0);
 
 private slots:
+    void callCall();
+
+private:
+    void (SignalSlotChange::* delegate) ();
+
     void firstCall();
     void secondCall();
 
-private:
     QPushButton *button;
 
 };
