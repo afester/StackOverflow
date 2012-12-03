@@ -1,0 +1,5 @@
+Makefile
+SignalSlotChange
+SignalSlotChange.o
+moc_SignalSlotChange.cpp
+moc_SignalSlotChange.o
