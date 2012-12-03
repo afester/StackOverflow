@@ -1,4 +1,5 @@
 .data
 lib
+Model/classes
 ViewController/public_html/WEB-INF/temp
 ViewController/classes/
