@@ -8,17 +8,17 @@
 /* StackOverflow reference:
  */
 
-#ifndef __SECOND_MAIN_WINDOW_H__
-#define __SECOND_MAIN_WINDOW_H__
+#ifndef __MY_FRAME_H__
+#define __MY_FRAME_H__
 
 #include <QFrame>
 
-class SecondMainWindow : public QFrame {
+class MyFrame : public QFrame {
 	Q_OBJECT
 
 public:
-	SecondMainWindow(QWidget* parent);
-	~SecondMainWindow();
+	MyFrame(QWidget* parent);
+	~MyFrame();
 
 protected:
 	virtual void paintEvent(QPaintEvent *e);

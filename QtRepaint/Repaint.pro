@@ -7,5 +7,5 @@ TEMPLATE = app
 QT = gui core
 CONFIG += qt warn_on
 FORMS = MainWindow.ui
-HEADERS = MainWindow.h secondmainwindow.h
-SOURCES = MainWindow.cpp SecondMainWindow.cpp main.cpp
+HEADERS = MainWindow.h MyFrame.h
+SOURCES = MainWindow.cpp MyFrame.cpp main.cpp

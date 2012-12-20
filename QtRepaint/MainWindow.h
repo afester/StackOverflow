@@ -6,11 +6,10 @@
  */
 
 /* StackOverflow reference:
- * http://stackoverflow.com/questions/12606365/how-to-match-tab-length-to-a-number-of-spaces-in-qt
+ * http://stackoverflow.com/questions/13979186/how-do-i-draw-on-a-frame-in-qt/13980245
  */
 
 #include <QMainWindow>
-#include <QWidget>
 #include "ui_MainWindow.h"
 
 class MainWindow : public QMainWindow {

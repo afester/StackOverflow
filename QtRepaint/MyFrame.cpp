@@ -10,20 +10,20 @@
 
 #include <QPainter>
 
-#include "secondmainwindow.h"
+#include "MyFrame.h"
 
-SecondMainWindow::SecondMainWindow(QWidget *parent) :
+MyFrame::MyFrame(QWidget *parent) :
     QFrame(parent) {
 }
 
-SecondMainWindow::~SecondMainWindow() {
+MyFrame::~MyFrame() {
 }
 
-void SecondMainWindow::paintEvent(QPaintEvent *e) {
-    QPainter paint(this); // ui->rightTriangle_frame);
+void MyFrame::paintEvent(QPaintEvent *e) {
+    QPainter paint(this);
     paint.setPen(Qt::red);
     paint.drawEllipse(10,10,100,100);
-
     paint.end();
+
     QFrame::paintEvent(e);
 }

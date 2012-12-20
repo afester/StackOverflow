@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="SecondMainWindow" name="frame">
+     <widget class="MyFrame" name="frame">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -41,9 +41,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>SecondMainWindow</class>
+   <class>MyFrame</class>
    <extends>QFrame</extends>
-   <header>secondmainwindow.h</header>
+   <header>MyFrame.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
