@@ -1,0 +1,59 @@
+I have the following code which creates two `QGraphicsScenes` rendering the same scene:
+
+*Header file:*
+class GraphicsItem : public QGraphicsRectItem {
+public:
+    GraphicsItem ( qreal x, qreal y, qreal width, qreal height, QGraphicsItem * parent = 0 );
+
+protected:
+    void paint ( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+};
+
+class GraphicsView : public QGraphicsView {
+    QColor viewColor;
+
+public:
+    GraphicsView(QWidget* parent);
+
+    void setColor(const QColor& color);
+};
+
+*cpp file:*
+GraphicsView::GraphicsView(QWidget* parent) : QGraphicsView(parent) {
+}
+
+void GraphicsView::setColor(const QColor& color) {
+    viewColor = color;
+}
+
+GraphicsItem::GraphicsItem ( qreal x, qreal y, qreal width, qreal height, QGraphicsItem * parent) :
+        QGraphicsRectItem(x, y, width, height, parent) {
+}
+
+void GraphicsItem::paint ( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget) {
+    painter->setPen(Qt::red);	// !! How to get the color from the view which is painting this item??
+    painter->drawRect(rect());
+}
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent), ui(new Ui::MainWindow), scene(new QGraphicsScene()) {
+    ui->setupUi(this);
+
+    // set up a graphics scene
+    GraphicsItem* item = new GraphicsItem(10, 10, 50, 50);
+    scene->addItem(item);
+
+    ui->blueView->setScene(scene);
+    ui->blueView->setColor(Qt::blue);	// A blue view
+    ui->blueView->show();
+
+    ui->redView->setScene(scene);
+    ui->redView->setColor(Qt::red);	// a red view
+    ui->redView->show();
+}
+
+A complete SSCCE including a main() function and a .pro file is available at ...
+
+I would like to have the `blueView` render the scene's items in blue, and the `redView` to render the items in red.
+
+Inside the item, is there any straight forward way to access data from the view which is triggering the item rendering?
