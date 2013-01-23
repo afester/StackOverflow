@@ -14,10 +14,22 @@ package com.example;
 public class ConsoleProgress {
 
    public static void main(String[] argv) throws InterruptedException {
-      int[] step = {100,200,300,400,500};
+      int[] step = {10,20,300,400,50};
+      
+      // Backspace approach (note: output is messed up if the numbers have 
+      // a length other than 3 characters)
       System.out.print("$> processed < ");
       for (int i : step) {
          System.out.print(i + " > records.\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
+         Thread.sleep(500);
+      }
+
+      System.out.println();
+      System.out.println();
+
+      // Newline approach:
+      for (int i : step) {
+         System.out.print("$> processed < " + i + " > records.\r");
          Thread.sleep(500);
       }
    }
