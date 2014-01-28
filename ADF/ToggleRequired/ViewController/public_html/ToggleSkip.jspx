@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="ToggleSkip.jspx" id="d1">
+            <af:form id="f1">
+                <af:panelStretchLayout id="psl1">
+                    <f:facet name="center">
+
+                       <af:panelFormLayout id="pfl1">
+
+                         <af:selectBooleanCheckbox id="sbc1" label="Skip Choice" value="#{sessionBean.skipInput}" 
+                                                   autoSubmit="true"
+                                                   immediate="true" 
+                                                   valueChangeListener="#{sessionBean.toggleSkipInput}"/>
+                        
+                         <af:selectOneChoice label="myLabel" id="soc1" partialTriggers="sbc1" 
+                                             value="#{sessionScope.sessionBean.someValue}"
+                                             required="#{!sessionBean.skipInput}">
+                           <f:selectItems value="#{applicationBean.myItems}" id="si1"/>
+                        </af:selectOneChoice>
+                        
+                      </af:panelFormLayout>
+                        
+                    </f:facet>
+                </af:panelStretchLayout>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
